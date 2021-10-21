@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import youtube_dl
 
+# DOCS https://discordpy.readthedocs.io/en/stable/#
+
 
 class music(commands.Cog):
     def __init__(self, client):
@@ -32,7 +34,8 @@ class music(commands.Cog):
         else:
             await ctx.voice_client.move_to(voice_channel)
 
-        # ctx.voice_client.stop()
+        ctx.voice_client.stop()
+
         FFMPEG_OPTIONS = {
             "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
             "options": "-vn",
@@ -55,6 +58,11 @@ class music(commands.Cog):
     async def resume(self, ctx):
         await ctx.voice_client.resume()
         await ctx.send("Resume")
+
+    @commands.command()
+    async def stop(self, ctx):
+        await ctx.voice_client.stop()
+        await ctx.send("Stopped")
 
 
 def setup(client):
