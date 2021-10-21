@@ -11,13 +11,7 @@ class music(commands.Cog):
 
     @commands.command()
     async def join(self, ctx):
-        if ctx.author.voice is None:
-            await ctx.send("You're not in a voice channel.")
-        voice_channel = ctx.author.voice.channel
-        if ctx.voice_client is None:
-            await voice_channel.connect()
-        else:
-            await ctx.voice_client.move_to(voice_channel)
+        await joinVoiceChannel(ctx)
 
     @commands.command()
     async def disconnect(self, ctx):
@@ -25,14 +19,7 @@ class music(commands.Cog):
 
     @commands.command()
     async def play(self, ctx, url):
-        # Move this to a separate method
-        if ctx.author.voice is None:
-            await ctx.send("You're not in a voice channel.")
-        voice_channel = ctx.author.voice.channel
-        if ctx.voice_client is None:
-            await voice_channel.connect()
-        else:
-            await ctx.voice_client.move_to(voice_channel)
+        await joinVoiceChannel(ctx)
 
         ctx.voice_client.stop()
 
@@ -63,6 +50,16 @@ class music(commands.Cog):
     async def stop(self, ctx):
         await ctx.voice_client.stop()
         await ctx.send("Stopped")
+
+
+async def joinVoiceChannel(ctx):
+    if ctx.author.voice is None:
+        await ctx.send("You have to join a voice channel first nerd.")
+    voice_channel = ctx.author.voice.channel
+    if ctx.voice_client is None:
+        await voice_channel.connect()
+    else:
+        await ctx.voice_client.move_to(voice_channel)
 
 
 def setup(client):
