@@ -2,7 +2,8 @@ import discord
 from discord.ext import commands
 import youtube_dl
 
-# DOCS https://discordpy.readthedocs.io/en/stable/#
+# discord.py DOCS   https://discordpy.readthedocs.io/en/stable/#
+# youtube-dl DOCS   https://github.com/ytdl-org/youtube-dl
 
 
 class music(commands.Cog):
