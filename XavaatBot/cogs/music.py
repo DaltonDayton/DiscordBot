@@ -2,11 +2,14 @@ import discord
 from discord.ext import commands
 import youtube_dl
 
-# discord.py DOCS   https://discordpy.readthedocs.io/en/stable/#
+# discord.py
+## GITHUB: https://github.com/Rapptz/discord.py
+## DOCUMENTATION: https://discordpy.readthedocs.io/en/latest/
+
 # youtube-dl DOCS   https://github.com/ytdl-org/youtube-dl
 
 
-class music(commands.Cog):
+class Music(commands.Cog):
     def __init__(self, client):
         self.client = client
 
@@ -64,4 +67,4 @@ async def joinVoiceChannel(ctx):
 
 
 def setup(client):
-    client.add_cog(music(client))
+    client.add_cog(Music(client))
