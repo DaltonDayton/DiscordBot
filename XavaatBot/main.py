@@ -1,7 +1,8 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 import os
 from dotenv import load_dotenv
+from itertools import cycle
 
 load_dotenv()
 TOKEN_ID = os.getenv("TOKEN_ID")
@@ -41,6 +42,7 @@ for filename in os.listdir("./XavaatBot/cogs"):
 @commands.has_role("Admin")
 async def clear(ctx, amount: int = 10):
     await ctx.channel.purge(limit=amount)
+    print("Finished Clearing")
 
 
 # Command Error Handling
@@ -53,13 +55,27 @@ async def clear(ctx, amount: int = 10):
 #     else:
 #         await ctx.send(error)
 
+status = cycle(
+    [
+        "A rolling golem gathers no rust.",
+        "I remain focused.",
+        "Magic and steam guide me.",
+        "The time of man has come to an end.",
+        "I put the 'go' in 'golem'. That was humor. Other golems find that to be appropriately funny.",
+        "Exterminate. Exterminate.",
+    ]
+)
+
+# Change status every minute
+@tasks.loop(seconds=60)
+async def change_status():
+    await client.change_presence(activity=discord.Game(next(status)))
+
 
 # On Ready
 @client.event
 async def on_ready():
-    await client.change_presence(
-        status=discord.Status.idle, activity=discord.Game("Hello there!")
-    )
+    change_status.start()
     print("Logged in as {0.user}".format(client))
 
 
