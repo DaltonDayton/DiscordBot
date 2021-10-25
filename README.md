@@ -116,11 +116,13 @@ The Token ID is specific to this bot. Only the owner and trusted developers have
    ```sh
    git clone https://github.com/DaltonDayton/DiscordBot.git
    ```
-2. Install python packages
+2. Create a virtual environment
+
+3. Install python packages
    ```sh
    pip install -r requirements.txt
    ```
-3. Create a `.env` file and enter the Token ID
+4. Create a `.env` file and enter the Token ID
    ```js
    TOKEN_ID=TokenIDHere
    ```
