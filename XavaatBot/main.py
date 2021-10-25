@@ -44,14 +44,14 @@ async def clear(ctx, amount: int = 10):
 
 
 # Command Error Handling
-@client.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.CommandNotFound):
-        await ctx.send("That is not a command.")
-    elif isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send("Please specify the number of messages to delete.")
-    else:
-        await ctx.send(error)
+# @client.event
+# async def on_command_error(ctx, error):
+#     if isinstance(error, commands.CommandNotFound):
+#         await ctx.send("That is not a command.")
+#     elif isinstance(error, commands.MissingRequiredArgument):
+#         await ctx.send("Please specify the number of messages to delete.")
+#     else:
+#         await ctx.send(error)
 
 
 # On Ready
