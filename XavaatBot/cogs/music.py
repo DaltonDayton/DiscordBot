@@ -55,6 +55,10 @@ class Music(commands.Cog):
         ctx.voice_client.stop()
         await ctx.send("Stopped")
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print("Music Cog Loaded.")
+
 
 async def joinVoiceChannel(ctx):
     if ctx.author.voice is None:
