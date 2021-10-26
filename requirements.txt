@@ -1,6 +1,3 @@
-discord.py==1.7.3
-python-dotenv==0.19.1
-youtube-dl==2021.6.6
-PyNaCL==1.4.0
-python-dotenv==0.19.1
-black==21.9b0
+discord.py[voice]
+wavelink
+black
