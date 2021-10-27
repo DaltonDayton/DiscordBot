@@ -1,6 +1,9 @@
 ### Custom ###
 token.0
 jdk-13.0.2/
+jdk-13.0.2-linux/
+/Lavalink_backup
+logs/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
