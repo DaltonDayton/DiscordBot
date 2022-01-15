@@ -1,3 +1,5 @@
+import os
+
 from bot import MusicBot
 
 # Start Lavalink server
