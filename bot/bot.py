@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 import discord
@@ -21,8 +22,9 @@ class MusicBot(commands.Bot):
     def run(self):
         self.setup()
 
-        with open("data/token.0", "r", encoding="utf-8") as f:
-            TOKEN = f.read()
+        # with open("data/token.0", "r", encoding="utf-8") as f:
+        # TOKEN = f.read()
+        TOKEN = os.environ.get("token.0")
 
         print("Running bot...")
         super().run(TOKEN, reconnect=True)
