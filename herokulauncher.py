@@ -8,7 +8,9 @@ from bot import MusicBot
 
 # os.system("java -jar Lavalink.jar")
 
-# time.sleep(30)
+print("i sleep")
+time.sleep(30)
+print("i wake")
 
 
 def main():
