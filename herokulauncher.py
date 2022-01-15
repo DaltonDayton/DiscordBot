@@ -6,7 +6,7 @@ from bot import MusicBot
 # Run       java -jar Lavalink.jar
 # From      [base]\jdk-13.0.2\bin
 
-os.system("java -jar .\\jdk-13.0.2\\bin\\Lavalink.jar")
+os.system("java -jar Lavalink.jar")
 
 time.sleep(30)
 
